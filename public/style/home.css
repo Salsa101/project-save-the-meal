@@ -13,7 +13,6 @@ body{
 
 body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
-    
 }
 
 
@@ -108,7 +107,7 @@ body::-webkit-scrollbar {
 .line {
     width: 5px; /* Lebar garis vertikal */
     height: 65px; /* Panjang garis vertikal sesuai tinggi kontainer */
-    background-color: black; /* Warna garis */
+    background-color: #0F4235; /* Warna garis */
 }
 
 .cont-choice{

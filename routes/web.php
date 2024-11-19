@@ -32,3 +32,7 @@ Route::get('/news', function () {
 Route::get('/volunteers', function () {
     return view('volunteers');
 });
+
+Route::get('/donate', function () {
+    return view('donate');
+});

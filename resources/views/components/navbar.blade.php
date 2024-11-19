@@ -28,6 +28,20 @@
         width: 180px;
     }
 
+    .donate-button:hover {
+        background-color: #C6D1AF;
+        border: 1px solid black;
+        box-shadow: 2px 4px 6px rgba(168, 168, 168, 0.9);
+    }
+
+    .dnt-btn a{
+        border: none
+    }
+
+    .donate-button.active{
+        background-color: white;
+    }
+
     .donate-button span {
         color: #0F4235;
     }
@@ -69,11 +83,11 @@
                 </li>
             </ul>
 
-            <div class="donate-button my-1">
-                <span class="btn fs-5 d-flex justify-content-center align-items-center fw-bolder">
-                    Donate
+            <div class="btn donate-button my-1 {{ Request::is('donate') ? 'active' : '' }}">
+                <div class="dnt-btn d-flex justify-content-center align-items-center">
+                    <a href="{{ url('/donate') }}" class="btn fs-5 fw-bolder">Donate</a>
                     <img class="ms-3" src="{{ asset('image/ScrollUp.png') }}" alt="">
-                </span>
+                </div>
             </div>
 
         </div>
