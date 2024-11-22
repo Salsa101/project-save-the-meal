@@ -15,20 +15,33 @@
         /* Warna garis */
     }
 
-    .donate-button-footer {
+    .donate-button-footer p {
         background-color: #C6D1AF;
-        border: 1px solid black;
         border-radius: 10px;
-        width: 250px;
+        border: 1px solid black;
+        color: #0F4235;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
-    .donate-button-footer span {
+    .donate-button-footer a {
+        text-decoration: none;
+    }
+
+    .donate-button-footer p:hover {
+        box-shadow: 2px 4px 6px rgba(180, 180, 180, 0.9);
+        background-color: #C6D1AF;
         color: #0F4235;
+    }
+
+    .donate-button-footer a:active {
+        background-color: #C6D1AF;
+        color: white;
     }
 </style>
 
 <div class="footer container-fluid">
-    <div class="cont-footer ms-5 me-5 mt-5 mb-5">
+    <div class="cont-footer ms-5 me-5 mt-5">
         <div class="row d-flex justify-content-between p-5">
             <div class="col-auto">
                 <img src="{{ asset('image/footerLogo.png') }}" style="width: 250px" alt="">
@@ -46,7 +59,7 @@
                 <div class="quick-link">
                     <h4 class="fw-bold text-white pb-3">Quick Link</h4>
                     <div class="list-links d-flex flex-column fs-5 fw-light gap-2">
-                        <a href="">Home</a>
+                        <a href="/">Home</a>
                         <a href="">About Us</a>
                         <a href="">News</a>
                         <a href="">Volunteer</a>
@@ -75,10 +88,12 @@
             </div>
 
             <div class="donate-button-footer col-auto me-2">
-                <span class="btn fs-4 d-flex justify-content-center align-items-center fw-bolder">
-                    Donate Now
-                    <img class="ms-3" src="{{ asset('image/ScrollUp.png') }}" alt="">
-                </span>
+                <a href="/donate">
+                    <p class="btn fs-4 d-flex justify-content-center align-items-center fw-bolder">
+                        Donate Now
+                        <img class="ms-3" src="{{ asset('image/ScrollUp.png') }}" alt="">
+                    </p>
+                </a>
             </div>
         </div>
     </div>

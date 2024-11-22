@@ -166,4 +166,55 @@ body::-webkit-scrollbar {
     border-radius: 40px;
 }
 
+/* ================================== */
 
+.button-container {
+    border: 1px solid black;
+    border-radius: 40px;
+    display: flex;
+    margin-top: 15px;
+}
+
+.slide-button {
+    display: flex;
+    padding: 21px 21px;
+    background-color: #C6D1AF;
+    color: #0F4235;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.arrow {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.text {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slide-button.animate {
+    transform: translateX(79%);
+}
+
+.slide-button.animate #arrow {
+    transform: translateX(10px);
+}
+
+.slide-button.animate #text {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.slide-button.success {
+    background-color: #C6D1AF; /* Ganti dengan warna yang diinginkan setelah animasi selesai */
+}
+
+/* Optional: Add style for hover/focus on the button */
+.slide-button:hover {
+    background-color: #C6D1AF;
+}

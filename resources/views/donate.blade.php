@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="btn-regist-now d-flex justify-content-center pt-5">
-                            <a href="">
+                            <a href="/register-partner">
                                 <p class="fs-3 fw-bold py-2">Register Now
                                     <img class="ps-4" src="{{ asset('image/ScrollUpw.png') }}">
                                 </p>
@@ -173,7 +173,7 @@
                         </div>
 
                         <div class="btn-regist-now d-flex justify-content-center pt-5">
-                            <a href="">
+                            <a href="/donate-now">
                                 <p class="fs-3 fw-bold py-2">Donate Now
                                     <img class="ps-4" src="{{ asset('image/ScrollUpw.png') }}">
                                 </p>
@@ -360,6 +360,31 @@
                                     <img class="pe-4" src="{{ asset('image/phone.png') }}">
                                     <h5 class="fw-bold">+62 8123 456 7890</h5>
                                 </div>
+
+                                <div class="button-container">
+                                    <button id="slideButton" class="slide-button">
+                                        <span id="arrow" class="arrow">→</span>
+                                        <span id="text" class="text fw-bold">Click to Contact Us</span>
+                                    </button>
+                                </div>
+
+                                <script>
+                                    let slideButton = document.getElementById('slideButton');
+                                    let arrow = document.getElementById('arrow');
+                                    let text = document.getElementById('text');
+
+                                    slideButton.addEventListener('click', function() {
+                                        // Tambahkan kelas 'animate' untuk memulai animasi
+                                        slideButton.classList.add('animate');
+
+                                        // Setelah animasi selesai, ganti warna tombol dan arahkan ke halaman lain
+                                        setTimeout(function() {
+                                            slideButton.classList.add('success'); // Ubah warna tombol setelah animasi selesai
+                                            window.location.href = '/contact-us'; // Arahkan ke halaman utama
+                                        }, 500); // Durasi animasi 0.5 detik (setelah animasi selesai)
+                                    });
+                                </script>
+
                             </div>
                         </div>
                     </div>

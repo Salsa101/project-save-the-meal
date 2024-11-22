@@ -42,16 +42,14 @@
                             <div class="pt-4 ps-3">
                                 <h1 class="take-text fw-bolder pt-2 me-3">Take <br> Action <br> Today !</h1>
                             </div>
-                            <span
-                                class="span1 btn mt-3 d-flex justify-content-center         align-items-center fw-bolder gap-3 fs-5 text-white"
-                                href="#">Donate Now
+                            <a class="span1 btn mt-3 d-flex justify-content-center align-items-center fw-bolder gap-3 fs-5 text-white"
+                                href="/donate-now">Donate Now
                                 <img src="{{ asset('image/ScrollUpw.png') }}" alt="">
-                            </span>
-                            <span
-                                class="span2 btn mt-3 d-flex justify-content-center align-items-center  fw-bolder fs-5 py-2 gap-1"
+                            </a>
+                            <a class="span2 btn mt-3 d-flex justify-content-center align-items-center  fw-bolder fs-5 py-2 gap-1"
                                 href="#">Join as Volunteer
                                 <img src="{{ asset('image/ScrollUp.png') }}" alt="">
-                            </span>
+                            </a>
                         </div>
                     </div>
 
@@ -589,7 +587,7 @@
 
 
     {{-- Start of Footer Section --}}
-    <x-footer/>
+    <x-footer />
     {{-- End of Footer Section --}}
 </body>
 

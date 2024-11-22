@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DonorController;
+use App\Http\Controllers\PartnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +38,19 @@ Route::get('/volunteers', function () {
 Route::get('/donate', function () {
     return view('donate');
 });
+
+Route::get('/register-partner', function () {
+    return view('registerPartner');
+});
+
+Route::get('/donate-now', function () {
+    return view('donateNow');
+});
+
+Route::get('/contact-us', function () {
+    return view('contactUs');
+});
+
+Route::post('/register', [PartnerController::class, 'store']);
+
+Route::post('/donor', [DonorController::class, 'store']);
