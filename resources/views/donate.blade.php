@@ -356,35 +356,64 @@
                                     <h5 class="fw-bold">+62 8123 456 7890</h5>
                                 </div>
 
-                                <div class="by-email d-flex justify-content-start align-items-center py-2 px-4">
-                                    <img class="pe-4" src="{{ asset('image/phone.png') }}">
-                                    <h5 class="fw-bold">+62 8123 456 7890</h5>
-                                </div>
-
-                                <div class="button-container">
-                                    <button id="slideButton" class="slide-button">
-                                        <span id="arrow" class="arrow">→</span>
-                                        <span id="text" class="text fw-bold">Click to Contact Us</span>
-                                    </button>
+                                <div class="slider-container" id="slider">
+                                    <div class="slider-text" id="sliderText">Slide Over to Contact Us</div>
+                                    <div class="slider-button" id="sliderButton">
+                                        <span class="slider-arrow">➔</span>
+                                    </div>
                                 </div>
 
                                 <script>
-                                    let slideButton = document.getElementById('slideButton');
-                                    let arrow = document.getElementById('arrow');
-                                    let text = document.getElementById('text');
+                                    const slider = document.getElementById('slider');
+                                    const button = document.getElementById('sliderButton');
+                                    const text = document.getElementById('sliderText');
 
-                                    slideButton.addEventListener('click', function() {
-                                        // Tambahkan kelas 'animate' untuk memulai animasi
-                                        slideButton.classList.add('animate');
+                                    const sliderWidth = slider.offsetWidth;
+                                    const buttonWidth = button.offsetWidth;
+                                    const padding = 5;
 
-                                        // Setelah animasi selesai, ganti warna tombol dan arahkan ke halaman lain
-                                        setTimeout(function() {
-                                            slideButton.classList.add('success'); // Ubah warna tombol setelah animasi selesai
-                                            window.location.href = '/contact-us'; // Arahkan ke halaman utama
-                                        }, 500); // Durasi animasi 0.5 detik (setelah animasi selesai)
+                                    let isDragging = false;
+
+                                    button.addEventListener('mousedown', (e) => {
+                                        isDragging = true;
+                                        e.preventDefault();
+                                    });
+
+                                    document.addEventListener('mousemove', (e) => {
+                                        if (isDragging) {
+                                            const sliderRect = slider.getBoundingClientRect();
+                                            let newLeft = e.clientX - sliderRect.left - buttonWidth / 2;
+
+                                            // Constrain within the slider
+                                            if (newLeft < padding) newLeft = padding;
+                                            if (newLeft > sliderWidth - buttonWidth - padding) newLeft = sliderWidth - buttonWidth - padding;
+
+                                            button.style.left = newLeft + 'px';
+
+                                            // Update background color and text opacity
+                                            const progress = (newLeft - padding) / (sliderWidth - buttonWidth - 2 * padding); // Progress 0 to 1
+                                            slider.style.backgroundColor = `rgba(198, 209, 175, ${progress})`; // Gradual color change
+                                            text.style.opacity = 1 - progress; // Gradual fade-out
+                                        }
+                                    });
+
+                                    document.addEventListener('mouseup', () => {
+                                        if (isDragging) {
+                                            const buttonLeft = parseInt(button.style.left, 10);
+
+                                            // Check if dragged to the end
+                                            if (buttonLeft >= sliderWidth - buttonWidth - padding - 10) {
+                                                window.location.href = '/contact-us'; // Replace with your contact page URL
+                                            } else {
+                                                button.style.left = padding + 'px'; // Reset position
+                                                slider.style.backgroundColor = '#ffffff'; // Reset color
+                                                text.style.opacity = 1; // Reset text visibility
+                                            }
+
+                                            isDragging = false;
+                                        }
                                     });
                                 </script>
-
                             </div>
                         </div>
                     </div>
