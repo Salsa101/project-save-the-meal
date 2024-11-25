@@ -80,3 +80,7 @@ textarea {
     border-radius: 30px;
     box-shadow: 2px 4px 6px rgba(168, 168, 168, 0.9);
 }
+
+.required {
+    color: red;
+}

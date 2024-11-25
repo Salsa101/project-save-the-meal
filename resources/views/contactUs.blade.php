@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     {{-- Start of Navbar Section --}}
     <x-navbar />
     {{-- End of Navbar Section --}}
@@ -52,26 +54,58 @@
 
                     <div class="line my-4"></div>
 
-                    <form>
+                    <form action="/contact" method="POST">
+                        @csrf
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="firstName" class="form-label fs-4">First Name :</label>
-                                <input type="text" class="form-control px-4" id="firstName" placeholder="John">
+                                <label for="firstName" class="form-label fs-4">First Name<span
+                                    class="required"> *</span></label>
+                                <input type="text" name="firstName" class="form-control px-4" id="firstName" placeholder="John" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="lastName" class="form-label fs-4">Last Name :</label>
-                                <input type="text" class="form-control px-4" id="lastName" placeholder="Doe">
+                                <label for="lastName" class="form-label fs-4">Last Name<span
+                                    class="required"> *</span></label>
+                                <input type="text" name="lastName"  class="form-control px-4" id="lastName" placeholder="Doe" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label fs-4">Email Address :</label>
-                            <input type="email" class="form-control px-4" id="email"
-                                placeholder="example@gmail.com">
+                            <label for="email" class="form-label fs-4">Email Address<span
+                                class="required"> *</span></label>
+                            <input type="email" name="email" class="form-control px-4" id="email"
+                                placeholder="example@gmail.com" required>
                         </div>
                         <div class="mb-3">
-                            <label for="message" class="form-label fs-4">Message :</label>
-                            <textarea class="form-control px-4 py-3" id="message" rows="12" placeholder="Leave us a message..." style="resize: none;"></textarea>
+                            <label for="message" class="form-label fs-4">Message<span
+                                class="required"> *</span></label>
+                            <textarea class="form-control px-4 py-3" name="message" id="message" rows="12" placeholder="Leave us a message..." style="resize: none;" required></textarea>
                         </div>
+
+
+                        {{-- Pesan Sukses --}}
+                        <div>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    var successMessage = '{{ session('success') }}';
+                                    if (successMessage) {
+                                        // Menampilkan SweetAlert
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Thank you for reaching out!',
+                                            text: 'Your message has been received and we will get back to you shortly.',
+                                            confirmButtonText: 'Close',
+                                            confirmButtonColor: '#0F4235',
+                                            allowOutsideClick: false, // Agar alert hanya bisa ditutup lewat tombol
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = '/contact-us';
+                                            }
+                                        });
+                                    }
+                                });
+                            </script>
+                        </div>
+
+
                         <div class="button-submit d-flex justify-content-center mt-5">
                             <button type="submit" class="btn fs-4 fw-bold py-2 text-white">Submit</button>
                         </div>

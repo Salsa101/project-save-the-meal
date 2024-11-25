@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\PartnerController;
 use Illuminate\Support\Facades\Route;
@@ -54,3 +56,15 @@ Route::get('/contact-us', function () {
 Route::post('/register', [PartnerController::class, 'store']);
 
 Route::post('/donor', [DonorController::class, 'store']);
+
+Route::post('/contact', [ContactController::class, 'store']);
+
+Route::middleware(['admin.access'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
+
+Route::delete('/admin/partners/{id}', [PartnerController::class, 'destroy']);
+
+Route::delete('/admin/donors/{id}', [DonorController::class, 'destroy']);
+
+Route::delete('/admin/contacts/{id}', [ContactController::class, 'destroy']);

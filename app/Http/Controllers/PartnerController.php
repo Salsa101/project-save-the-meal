@@ -17,7 +17,7 @@ class PartnerController extends Controller
     public function store(Request $request)
     {
 
-        $validatedData = $request->validate([
+        $request->validate([
             'business_name' => 'required|string|max:255',
             'restaurant_address' => 'required|string|max:255',
             'business_phone' => 'required|string|max:20',
@@ -32,23 +32,22 @@ class PartnerController extends Controller
             'pickup_schedule' => 'required|string|max:255',
         ]);
 
-        // Simpan data ke database
-        $restaurant = new Partner();
-        $restaurant->business_name = $validatedData['business_name'];
-        $restaurant->restaurant_address = $validatedData['restaurant_address'];
-        $restaurant->business_phone = $validatedData['business_phone'];
-        $restaurant->email_address = $validatedData['email_address'];
-        $restaurant->website = $validatedData['website'];
-        $restaurant->contact_name = $validatedData['contact_name'];
-        $restaurant->position = $validatedData['position'];
-        $restaurant->contact_phone = $validatedData['contact_phone'];
-        $restaurant->contact_email = $validatedData['contact_email'];
-        $restaurant->food_type = $validatedData['food_type'];
-        $restaurant->surplus_food = $validatedData['surplus_food'];
-        $restaurant->pickup_schedule = $validatedData['pickup_schedule'];
-        $restaurant->save();
+        Partner::create($request->all());
 
         // Redirect atau response
         return redirect()->back()->with('success', 'Registration successful!');
+    }
+
+    // Fungsi untuk menghapus data partner
+    public function destroy($id)
+    {
+        // Mencari data partner berdasarkan ID
+        $partner = Partner::findOrFail($id);
+        $partner->delete();
+
+        $secretToken = 'secure_admin_token123';
+
+        // Redirect ke halaman daftar partner dengan pesan sukses
+        return redirect()->route('admin.dashboard', ['admin_token' => $secretToken])->with('success', 'Partner deleted successfully!');
     }
 }

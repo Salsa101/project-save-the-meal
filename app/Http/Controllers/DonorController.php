@@ -25,4 +25,17 @@ class DonorController extends Controller
 
         return redirect()->back()->with('success', 'Donation successfully registered!');
     }
+
+    // Fungsi untuk menghapus data donor
+    public function destroy($id)
+    {
+        // Mencari data partner berdasarkan ID
+        $donor = Donor::findOrFail($id);
+        $donor->delete();
+
+        $secretToken = 'secure_admin_token123';
+
+        // Redirect ke halaman daftar partner dengan pesan sukses
+        return redirect()->route('admin.dashboard', ['admin_token' => $secretToken])->with('success', 'Donor deleted successfully!');
+    }
 }
