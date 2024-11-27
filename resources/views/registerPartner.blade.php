@@ -186,16 +186,16 @@
                         {{-- Checkbox --}}
                         <div class="container-checkbox pt-5">
                             <div class="d-flex align-items-center gap-5 pb-5">
-                                <input type="checkbox" name="checkbox1" id="checkbox1" class="checkbox-custom"
-                                    {{ old('checkbox1') ? 'checked' : '' }} required>
+                                <input type="checkbox" name="checkbox1" id="checkbox1" value="1"
+                                    class="checkbox-custom" {{ old('checkbox1') ? 'checked' : '' }} required>
                                 <label for="checkbox1" class="fs-4 lh-1"><i>I confirm that the food donated will be
                                         safe for consumption and that I will follow the food safety guidelines
                                         provided.</i></label>
                             </div>
 
                             <div class="d-flex align-items-center gap-5">
-                                <input type="checkbox" name="checkbox2" id="checkbox2" class="checkbox-custom"
-                                    {{ old('checkbox2') ? 'checked' : '' }} required>
+                                <input type="checkbox" name="checkbox2" id="checkbox2" value="1"
+                                    class="checkbox-custom" {{ old('checkbox2') ? 'checked' : '' }} required>
                                 <label for="checkbox2" class="fs-4"><i>I agree to be contacted via WhatsApp once my
                                         registration is verified.</i></label>
                             </div>
