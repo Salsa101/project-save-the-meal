@@ -1,5 +1,4 @@
 html {
-    scrollbar-width: none; /* Firefox */
     margin: 0;
     padding: 0;
     height: 100%;
@@ -10,11 +9,6 @@ body{
     padding: 0;
     height: 100%;
 }
-
-body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
-}
-
 
 .line1-text1{
     font-size: 55px;
@@ -105,9 +99,9 @@ body::-webkit-scrollbar {
 }
 
 .line {
-    width: 5px; /* Lebar garis vertikal */
-    height: 65px; /* Panjang garis vertikal sesuai tinggi kontainer */
-    background-color: #0F4235; /* Warna garis */
+    width: 5px;
+    height: 65px;
+    background-color: #0F4235;
 }
 
 .cont-choice{

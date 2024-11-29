@@ -10,11 +10,7 @@ body{
     height: 100%;
 }
 
-.title-donate-to{
-    font-size: 45px;
-}
-
-.title-donate-to2{
+.title-about2{
    background-color: #C6D1AF;
    border-radius: 20px;
    color: #0F4235;
@@ -24,14 +20,16 @@ body{
     font-size: 58px;
 }
 
-.help-us{
-    text-align: justify;
-}
-
 .line {
     width: 5px; /* Lebar garis vertikal */
     height: 65px; /* Panjang garis vertikal sesuai tinggi kontainer */
     background-color: #0F4235; /* Warna garis */
+}
+
+.line2 {
+    height: 5px;
+    background-color: #0F4235; 
+    flex-grow: 1;
 }
 
 .title-ways-donate h1{

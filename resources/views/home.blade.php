@@ -279,7 +279,7 @@
                     <h1 class="fw-bolder">News and Updates</h1>
                 </div>
 
-                <a href="">
+                <a href="/news">
                     <img class="ms-auto" src="{{ asset('image/UpArrow.png') }}">
                 </a>
 
@@ -436,7 +436,7 @@
                 <div style="padding-bottom: 1px; padding-top: 25px">
                     <div class="bottom-comment d-flex justify-content-between align-items-center p-4 px-5 mb-5">
                         <h1 class="fw-bolder">Are You The Next One!</h1>
-                        <a href="">
+                        <a href="/volunteers">
                             <p class="fs-3 fw-bold py-2 px-5">Join Now! <img class="ps-4"
                                     src="{{ asset('image/ScrollUp.png') }}" alt=""></p>
                         </a>

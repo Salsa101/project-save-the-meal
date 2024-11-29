@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\VolunteerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,8 @@ Route::get('/volunteers', function () {
     return view('volunteers');
 });
 
+Route::get('/volunteers', [VolunteerController::class, 'index']);
+
 Route::get('/donate', function () {
     return view('donate');
 });
@@ -59,6 +62,8 @@ Route::post('/donor', [DonorController::class, 'store']);
 
 Route::post('/contact', [ContactController::class, 'store']);
 
+Route::post('/volunteers', [VolunteerController::class, 'store'])->name('volunteers.store');
+
 Route::middleware(['admin.access'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
@@ -68,3 +73,11 @@ Route::delete('/admin/partners/{id}', [PartnerController::class, 'destroy']);
 Route::delete('/admin/donors/{id}', [DonorController::class, 'destroy']);
 
 Route::delete('/admin/contacts/{id}', [ContactController::class, 'destroy']);
+
+Route::delete('/admin/volunteers/{id}', [VolunteerController::class, 'destroy']);
+
+
+
+
+
+

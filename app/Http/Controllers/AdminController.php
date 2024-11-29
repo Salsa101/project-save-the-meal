@@ -6,6 +6,7 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Partner;
 use App\Models\Donor;
+use App\Models\Volunteer;
 
 class AdminController extends Controller
 {
@@ -14,7 +15,8 @@ class AdminController extends Controller
         $partners = Partner::all();
         $donors = Donor::all();
         $contacts = Contact::all();
+        $volunteers = Volunteer::all();
 
-        return view('admin', compact('partners', 'donors', 'contacts'));
+        return view('admin', compact('partners', 'donors', 'contacts', 'volunteers'));
     }
 }

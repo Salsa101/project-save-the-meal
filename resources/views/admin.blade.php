@@ -19,7 +19,7 @@
     @endif
 
     <div class="container mt-5">
-        <h1>Admin Dashboard</h1>
+        <h1 class="fw-bold">Admin Dashboard</h1>
         <ul class="nav nav-tabs" id="adminTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="partners-tab" data-bs-toggle="tab" data-bs-target="#partners"
@@ -39,11 +39,17 @@
                     Contacts
                 </button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="volunteers-tab" data-bs-toggle="tab" data-bs-target="#volunteers"
+                    type="button" role="tab">
+                    Volunteers
+                </button>
+            </li>
         </ul>
         <div class="tab-content mt-3">
             <!-- Partners Table -->
             <div class="tab-pane fade show active" id="partners" role="tabpanel">
-                <h3>Partners</h3>
+                <h3 class="fw-bold">Partners</h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -101,7 +107,7 @@
 
             <!-- Donors Table -->
             <div class="tab-pane fade" id="donors" role="tabpanel">
-                <h3>Donors</h3>
+                <h3 class="fw-bold">Donors</h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -141,7 +147,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Are you sure you want to delete this partner?')">Delete</button>
+                                            onclick="return confirm('Are you sure you want to delete this donor?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -152,7 +158,7 @@
 
             <!-- Contacts Table -->
             <div class="tab-pane fade" id="contacts" role="tabpanel">
-                <h3>Contacts</h3>
+                <h3 class="fw-bold">Contacts</h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -190,6 +196,74 @@
                     </tbody>
                 </table>
             </div>
+
+
+            <!-- Form Volunteer -->
+            <div class="tab-pane fade" id="volunteers" role="tabpanel">
+                <div class="container">
+                    <h3 class="fw-bold">Add Volunteer</h3>
+                    <form action="{{ route('volunteers.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location" name="location" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Quota</label>
+                            <input type="text" class="form-control" id="quota" name="quota" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Volunteer</button>
+                    </form>
+            
+                    <hr>
+            
+                    <!-- Tabel Data Volunteer -->
+                    <h3 class="mt-5 fw-bold">Volunteers List</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Location</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Quota</th>
+                                <th>Created At</th>
+                                <th>Updated At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($volunteers as $volunteer)
+                                <tr>
+                                    <td>{{ $volunteer->id }}</td>
+                                    <td>{{ $volunteer->location }}</td>
+                                    <td>{{ $volunteer->title }}</td>
+                                    <td>{{ $volunteer->description }}</td>
+                                    <td>{{ $volunteer->quota }}</td>
+                                    <td>{{ $volunteer->created_at }}</td>
+                                    <td>{{ $volunteer->updated_at }}</td>
+                                    <td>
+                                        <form action="/admin/volunteers/{{ $volunteer->id }}" method="POST"
+                                            style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Are you sure you want to delete this volunteer?')">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>            
         </div>
     </div>
 </body>
