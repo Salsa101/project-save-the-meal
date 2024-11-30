@@ -87,14 +87,13 @@
                                 document.addEventListener("DOMContentLoaded", function() {
                                     var successMessage = '{{ session('success') }}';
                                     if (successMessage) {
-                                        // Menampilkan SweetAlert
                                         Swal.fire({
                                             icon: 'success',
                                             title: 'Thank you for reaching out!',
                                             text: 'Your message has been received and we will get back to you shortly.',
                                             confirmButtonText: 'Close',
                                             confirmButtonColor: '#0F4235',
-                                            allowOutsideClick: false, // Agar alert hanya bisa ditutup lewat tombol
+                                            allowOutsideClick: false,
                                         }).then((result) => {
                                             if (result.isConfirmed) {
                                                 window.location.href = '/contact-us';

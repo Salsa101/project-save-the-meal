@@ -12,7 +12,6 @@
         width: auto;
         height: 3px;
         background-color: white;
-        /* Warna garis */
     }
 
     .donate-button-footer p {

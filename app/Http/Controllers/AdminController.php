@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beneficiary;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Partner;
@@ -16,7 +17,8 @@ class AdminController extends Controller
         $donors = Donor::all();
         $contacts = Contact::all();
         $volunteers = Volunteer::all();
+        $beneficiaries = Beneficiary::all();
 
-        return view('admin', compact('partners', 'donors', 'contacts', 'volunteers'));
+        return view('admin', compact('partners', 'donors', 'contacts', 'volunteers', 'beneficiaries'));
     }
 }

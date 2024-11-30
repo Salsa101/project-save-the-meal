@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BeneficiaryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DonorController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\VolunteerController;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +32,9 @@ Route::get('/beneficiaries', function () {
     return view('beneficiaries');
 });
 
-Route::get('/news', function () {
-    return view('news');
-});
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
 
 Route::get('/volunteers', function () {
     return view('volunteers');
@@ -64,6 +66,8 @@ Route::post('/contact', [ContactController::class, 'store']);
 
 Route::post('/volunteers', [VolunteerController::class, 'store'])->name('volunteers.store');
 
+Route::post('/beneficiary', [BeneficiaryController::class, 'store']);
+
 Route::middleware(['admin.access'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
@@ -75,6 +79,8 @@ Route::delete('/admin/donors/{id}', [DonorController::class, 'destroy']);
 Route::delete('/admin/contacts/{id}', [ContactController::class, 'destroy']);
 
 Route::delete('/admin/volunteers/{id}', [VolunteerController::class, 'destroy']);
+
+Route::delete('/admin/beneficiaries/{id}', [BeneficiaryController::class, 'destroy']);
 
 
 

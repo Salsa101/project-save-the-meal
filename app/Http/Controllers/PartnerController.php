@@ -13,7 +13,6 @@ class PartnerController extends Controller
         return view('registerPartner');
     }
 
-    // Menangani data yang dikirim
     public function store(Request $request)
     {
 
@@ -34,20 +33,16 @@ class PartnerController extends Controller
 
         Partner::create($request->all());
 
-        // Redirect atau response
         return redirect()->back()->with('success', 'Registration successful!');
     }
 
-    // Fungsi untuk menghapus data partner
     public function destroy($id)
     {
-        // Mencari data partner berdasarkan ID
         $partner = Partner::findOrFail($id);
         $partner->delete();
 
         $secretToken = 'secure_admin_token123';
 
-        // Redirect ke halaman daftar partner dengan pesan sukses
         return redirect()->route('admin.dashboard', ['admin_token' => $secretToken])->with('success', 'Partner deleted successfully!');
     }
 }

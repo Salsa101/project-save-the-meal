@@ -249,16 +249,14 @@
                                             const sliderRect = slider.getBoundingClientRect();
                                             let newLeft = e.clientX - sliderRect.left - buttonWidth / 2;
 
-                                            // Constrain within the slider
                                             if (newLeft < padding) newLeft = padding;
                                             if (newLeft > sliderWidth - buttonWidth - padding) newLeft = sliderWidth - buttonWidth - padding;
 
                                             button.style.left = newLeft + 'px';
 
-                                            // Update background color and text opacity
-                                            const progress = (newLeft - padding) / (sliderWidth - buttonWidth - 2 * padding); // Progress 0 to 1
-                                            slider.style.backgroundColor = `rgba(198, 209, 175, ${progress})`; // Gradual color change
-                                            text.style.opacity = 1 - progress; // Gradual fade-out
+                                            const progress = (newLeft - padding) / (sliderWidth - buttonWidth - 2 * padding);
+                                            slider.style.backgroundColor = `rgba(198, 209, 175, ${progress})`;
+                                            text.style.opacity = 1 - progress;
                                         }
                                     });
 
@@ -266,13 +264,12 @@
                                         if (isDragging) {
                                             const buttonLeft = parseInt(button.style.left, 10);
 
-                                            // Check if dragged to the end
                                             if (buttonLeft >= sliderWidth - buttonWidth - padding - 10) {
-                                                window.location.href = '/contact-us'; // Replace with your contact page URL
+                                                window.location.href = '/contact-us';
                                             } else {
-                                                button.style.left = padding + 'px'; // Reset position
-                                                slider.style.backgroundColor = '#ffffff'; // Reset color
-                                                text.style.opacity = 1; // Reset text visibility
+                                                button.style.left = padding + 'px';
+                                                slider.style.backgroundColor = '#ffffff';
+                                                text.style.opacity = 1;
                                             }
 
                                             isDragging = false;

@@ -16,17 +16,14 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        // Validasi token pada query string
         $adminToken = $request->query('admin_token');
-        
-        // Token yang valid
+
         $validToken = 'secure_admin_token123';
 
-        // Jika token tidak valid, tampilkan error
         if ($adminToken !== $validToken) {
             abort(403, 'Unauthorized access');
         }
-        
+
         return $next($request);
     }
 }

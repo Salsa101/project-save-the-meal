@@ -45,7 +45,15 @@
                     Volunteers
                 </button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="beneficiaries-tab" data-bs-toggle="tab" data-bs-target="#beneficiaries"
+                    type="button" role="tab">
+                    Beneficiaries
+                </button>
+            </li>
         </ul>
+
+
         <div class="tab-content mt-3">
             <!-- Partners Table -->
             <div class="tab-pane fade show active" id="partners" role="tabpanel">
@@ -263,7 +271,51 @@
                         </tbody>
                     </table>
                 </div>
-            </div>            
+            </div>     
+            
+            
+            <!-- Beneficiaries Table -->
+            <div class="tab-pane fade" id="beneficiaries" role="tabpanel">
+                <h3 class="fw-bold">Beneficiary</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Phone Number</th>
+                            <th>Email Address</th>
+                            <th>Address</th>
+                            <th>Reason for Application</th>
+                            <th>Created at</th>
+                            <th>Updated at</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($beneficiaries as $beneficiary)
+                            <tr>
+                                <td>{{ $beneficiary->id }}</td>
+                                <td>{{ $beneficiary->full_name }}</td>
+                                <td>{{ $beneficiary->phone_number }}</td>
+                                <td>{{ $beneficiary->email_address }}</td>
+                                <td>{{ $beneficiary->address }}</td>
+                                <td>{{ $beneficiary->reason_apply }}</td>
+                                <td>{{ $beneficiary->created_at }}</td>
+                                <td>{{ $beneficiary->updated_at }}</td>
+
+                                <td>
+                                    <form action="/admin/beneficiaries/{{ $beneficiary->id }}" method="POST"
+                                        style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Are you sure you want to delete this beneficiary?')">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>

@@ -29,13 +29,11 @@ class VolunteerController extends Controller
 
     public function destroy($id)
     {
-        // Mencari data partner berdasarkan ID
         $volunteer = Volunteer::findOrFail($id);
         $volunteer->delete();
 
         $secretToken = 'secure_admin_token123';
 
-        // Redirect ke halaman daftar partner dengan pesan sukses
         return redirect()->route('admin.dashboard', ['admin_token' => $secretToken])->with('success', 'Volunteer deleted successfully!');
     }
 }

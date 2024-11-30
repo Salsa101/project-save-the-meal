@@ -47,7 +47,7 @@
                                 <img src="{{ asset('image/ScrollUpw.png') }}" alt="">
                             </a>
                             <a class="span2 btn mt-3 d-flex justify-content-center align-items-center  fw-bolder fs-5 py-2 gap-1"
-                                href="#">Join as Volunteer
+                                href="/volunteers">Join as Volunteer
                                 <img src="{{ asset('image/ScrollUp.png') }}" alt="">
                             </a>
                         </div>
@@ -90,7 +90,7 @@
                     <div class="card-img-overlay d-flex flex-column justify-content-end p-2">
                         <h5 class="card-title m-0">See How We Make</h5>
                         <h5 class="card-title m-0">an Impact
-                            <a href=""><img class="img-arrow" src="{{ asset('image/Arrow1.png') }}"
+                            <a href="https://www.youtube.com"><img class="img-arrow" src="{{ asset('image/Arrow1.png') }}"
                                     style="width: 68px"><a>
                         </h5>
                     </div>
@@ -107,7 +107,6 @@
                 <div class="title-choice d-flex align-items-center">
                     <div class="line me-3"></div>
                     <h1 class="fw-bolder">Together, We Can Make a Difference</h1>
-                    <img class="ms-auto" src="{{ asset('image/UpArrow.png') }}" alt="">
                 </div>
 
                 <p class="p-indo pt-4 fs-4">In Indonesia, 23-48 million tons of food go to waste each year – enough to

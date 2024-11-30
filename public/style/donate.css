@@ -29,9 +29,9 @@ body{
 }
 
 .line {
-    width: 5px; /* Lebar garis vertikal */
-    height: 65px; /* Panjang garis vertikal sesuai tinggi kontainer */
-    background-color: #0F4235; /* Warna garis */
+    width: 5px;
+    height: 65px;
+    background-color: #0F4235;
 }
 
 .title-ways-donate h1{
@@ -138,9 +138,9 @@ body{
 }
 
 .line-impact {
-    width: 1px; /* Lebar garis vertikal */
-    height: 100%; /* Panjang garis vertikal sesuai tinggi kontainer */
-    background-color: black; /* Warna garis */
+    width: 1px;
+    height: 100%;
+    background-color: black;
 }
 
 .meals-delivery{

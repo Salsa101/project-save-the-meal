@@ -12,9 +12,9 @@
 }
 
 .line{
-    width: 100; /* Lebar garis vertikal */
-    height: 1px; /* Panjang garis vertikal sesuai tinggi kontainer */
-    background-color: black; /* Warna garis */
+    width: 100;
+    height: 1px;
+    background-color: black;
 }
 
 .form-group label {
@@ -27,8 +27,8 @@
 }
 
 .form-control {
-    border-radius: 20px !important; /* Ganti border radius */
-    border: 1px solid black !important; /* Ganti warna border */
+    border-radius: 20px !important;
+    border: 1px solid black !important;
 }
 
 
@@ -50,9 +50,9 @@
 }
 
 .swal2-html-container ul {
-    text-align: left; /* Mengatur hanya <ul> yang rata kiri */
-    list-style-position: inside; /* Bullet point di dalam list */
-    padding-left: 20px; /* Memberikan padding kiri agar rapi */
+    text-align: left;
+    list-style-position: inside;
+    padding-left: 20px;
 }
 
 

@@ -117,7 +117,7 @@
                             <label for="food_type" class="col-sm-3 col-form-label form-label fs-4">Type of Food<span
                                     class="required"> *</span></label>
                             <div class="col-sm-9">
-                                <!-- Baris pertama (3 radio button yang mengisi 100% lebar) -->
+                                <!-- Baris pertama -->
                                 <div class="row d-flex justify-content-between pb-3">
                                     <div class="col-auto">
                                         <div class="form-check d-flex align-items-center">
@@ -151,7 +151,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Baris kedua (2 radio button, masing-masing 50% lebar) -->
+                                <!-- Baris kedua -->
                                 <div class="row">
                                     <div class="col-auto">
                                         <div class="form-check d-flex align-items-center">
@@ -252,7 +252,7 @@
                         </div>
 
 
-                        {{-- Script untuk radio button --}}
+                        {{-- Script for radio button --}}
                         <script>
                             document.addEventListener('DOMContentLoaded', function() {
                                 const courierRadio = document.getElementById('courier_service');
@@ -261,37 +261,30 @@
                                 const courierNameLabel = document.querySelector('label[for="courier_name"]');
                                 const trackingLabel = document.querySelector('label[for="tracking_number"]');
 
-                                // Fungsi untuk menambahkan/menghapus span required
                                 function toggleRequiredLabel() {
                                     const requiredSpan = '<span class="required">*</span>';
 
                                     if (courierRadio.checked) {
-                                        // Menambahkan span required pada label Courier Name
                                         if (!courierNameLabel.innerHTML.includes(requiredSpan)) {
                                             courierNameLabel.innerHTML += requiredSpan;
                                         }
 
-                                        // Menambahkan span required pada label Tracking Number
                                         if (!trackingLabel.innerHTML.includes(requiredSpan)) {
                                             trackingLabel.innerHTML += requiredSpan;
                                         }
 
-                                        // Menambahkan span required pada label Courier Service
                                         if (!courierServLabel.innerHTML.includes(requiredSpan)) {
                                             courierServLabel.innerHTML += requiredSpan;
                                         }
                                     } else {
-                                        // Menghapus span required pada label Courier Name, Courier Service, dan Tracking Number
                                         courierNameLabel.innerHTML = courierNameLabel.innerHTML.replace(requiredSpan, '');
                                         trackingLabel.innerHTML = trackingLabel.innerHTML.replace(requiredSpan, '');
                                         courierServLabel.innerHTML = courierServLabel.innerHTML.replace(requiredSpan, '');
                                     }
                                 }
 
-                                // Panggil fungsi saat dokumen dimuat
                                 toggleRequiredLabel();
 
-                                // Tambahkan event listener untuk perubahan pada radio button
                                 courierRadio.addEventListener('change', toggleRequiredLabel);
                                 dropOffRadio.addEventListener('change', toggleRequiredLabel);
                             });
@@ -326,13 +319,12 @@
                             </div>
                         </div>
 
-                        {{-- Pesan Sukses --}}
+                        {{-- Success Message --}}
                         <div>
                             <script>
                                 document.addEventListener("DOMContentLoaded", function() {
                                     var successMessage = '{{ session('success') }}';
                                     if (successMessage) {
-                                        // Menampilkan SweetAlert
                                         Swal.fire({
                                             icon: 'success',
                                             title: 'Thank You for Your Donation!',
@@ -344,12 +336,12 @@
                                                         <li>Drop-off: We’ll contact you soon via WhatsApp to arrange the drop-off.</li>
                                                     </ul>
                                                     `,
-                                            confirmButtonText: 'Back to Home',
+                                            confirmButtonText: 'Close',
                                             confirmButtonColor: '#0F4235',
-                                            allowOutsideClick: false, // Agar alert hanya bisa ditutup lewat tombol
+                                            allowOutsideClick: false,
                                         }).then((result) => {
                                             if (result.isConfirmed) {
-                                                window.location.href = '/'; // Redirect ke halaman Home
+                                                window.location.href = '/donate-now';
                                             }
                                         });
                                     }

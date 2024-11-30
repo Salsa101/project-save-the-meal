@@ -201,13 +201,12 @@
                             </div>
                         </div>
 
-                        {{-- Pesan Sukses --}}
+                        {{-- Success Message --}}
                         <div>
                             <script>
                                 document.addEventListener("DOMContentLoaded", function() {
                                     var successMessage = '{{ session('success') }}';
                                     if (successMessage) {
-                                        // Menampilkan SweetAlert
                                         Swal.fire({
                                             icon: 'success',
                                             title: 'Thank You for Registering as Our Partner!',
@@ -220,12 +219,12 @@
                                                     </ul>
                                                     <p>Thank you for joining us in making a difference!</p>
                                                     `,
-                                            confirmButtonText: 'Back to Home',
+                                            confirmButtonText: 'Close',
                                             confirmButtonColor: '#0F4235',
-                                            allowOutsideClick: false, // Agar alert hanya bisa ditutup lewat tombol
+                                            allowOutsideClick: false,
                                         }).then((result) => {
                                             if (result.isConfirmed) {
-                                                window.location.href = '/'; // Redirect ke halaman Home
+                                                window.location.href = '/register-partner';
                                             }
                                         });
                                     }

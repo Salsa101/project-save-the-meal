@@ -1,25 +1,25 @@
-.cont-become-partner h1{
+.cont-become-partner h1 {
     font-size: 50px;
 }
 
-.cont-become-partner p{
+.cont-become-partner p {
     text-align: justify;
 }
 
-.how-it-works ol{
-    text-align: justify;
-    line-height: 1.3;
-}
-
-.types-of-food ul{
+.how-it-works ol {
     text-align: justify;
     line-height: 1.3;
 }
 
-.line{
-    width: 100; /* Lebar garis vertikal */
-    height: 1px; /* Panjang garis vertikal sesuai tinggi kontainer */
-    background-color: black; /* Warna garis */
+.types-of-food ul {
+    text-align: justify;
+    line-height: 1.3;
+}
+
+.line {
+    width: 100;
+    height: 1px;
+    background-color: black;
 }
 
 .form-group label {
@@ -32,57 +32,51 @@
 }
 
 .form-control {
-    border-radius: 20px !important; /* Ganti border radius */
-    border: 1px solid black !important; /* Ganti warna border */
+    border-radius: 20px !important;
+    border: 1px solid black !important;
 }
 
-
-.checkbox-custom{
+.checkbox-custom {
     min-width: 30px;
     min-height: 30px;
     accent-color: black;
 }
 
-.form-check-input{
+.form-check-input {
     min-width: 20px;
     min-height: 20px;
     accent-color: black;
 }
 
-.btn-submit-reg button{
-    background-color: #0F4235;
+.btn-submit-reg button {
+    background-color: #0f4235;
     border-radius: 40px;
 }
 
-.btn-submit-reg button:hover{
-    background-color: #0F4235;
+.btn-submit-reg button:hover {
+    background-color: #0f4235;
     border-radius: 40px;
     box-shadow: 2px 4px 6px rgba(168, 168, 168, 0.9);
 }
 
 .swal2-html-container p {
-    text-align: left; /* Mengatur hanya <ul> yang rata kiri */
+    text-align: left;
 }
 
 .swal2-html-container ul {
-    text-align: justify; /* Mengatur hanya <ul> yang rata kiri */
-    list-style-position: inside; /* Bullet point di dalam list */
-    padding-left: 20px; /* Memberikan padding kiri agar rapi */
+    text-align: justify;
+    list-style-position: inside;
+    padding-left: 20px;
 }
 
 input[type="radio"] {
-    border: 1px solid black; /* Warna border yang kontras */
+    border: 1px solid black;
     border-radius: 50%;
-    background-color: white; /* Background putih agar border terlihat jelas */
+    background-color: white;
 }
 
 input[type="radio"]:checked {
-    background-color: #0F4235; /* Ubah warna latar belakang saat terpilih */
-    border-color: black; /* Ubah warna border saat terpilih */
-    outline: none; /* Hapus outline default */
+    background-color: #0f4235;
+    border-color: black;
+    outline: none;
 }
-
-
-
-
-
